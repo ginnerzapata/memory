@@ -8,7 +8,7 @@ function Header(props) {
       <img src={logo} alt={'logo'} />
       <h1>Memory Game</h1>
       <div className="scores">
-        <span>Max score: 150</span>
+        <span>Last score: {props.lastScore}</span>
         <span>Current score: {props.score}</span>
       </div>
     </div>

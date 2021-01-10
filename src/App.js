@@ -9,6 +9,7 @@ function App() {
   const [dataIsLoaded, setDataIsLoaded] = useState(false)
   const [renderedCards, setRenderedCards] = useState([])
   const [score, setScore] = useState(0)
+  const [lastScore, setLastScore] = useState(0)
 
   useEffect(() => {
     setDataIsLoaded(false)
@@ -47,6 +48,7 @@ function App() {
       if (pokemon.active && id === pokemon.entry_number) {
         modifiedData.forEach((pokemon) => delete pokemon.active)
         document.body.style.backgroundColor = 'red'
+        setLastScore(score)
         setScore(0)
 
         setTimeout(() => {
@@ -81,7 +83,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header score={score} />
+      <Header score={score} lastScore={lastScore} />
 
       <main className="row">
         <Rules />
